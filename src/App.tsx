@@ -3,13 +3,18 @@ import React from "react";
 import TodoList from "./components/TodoList";
 import NewTodo from "./components/NewTodo";
 
-const todos = [{ id: "t1", text: "Learn React and TypeScript" }];
 // FC Type is a Function Component
 const App: React.FC = () => {
+  const todos = [{ id: "t1", text: "Learn React and TypeScript" }];
+
+  const todoAddHandler = (text: string) => {
+    console.log(text);
+  };
+
   return (
     <>
       <div className="App">
-        <NewTodo />
+        <NewTodo onAddTodo={todoAddHandler} />
         <TodoList items={todos} />
       </div>
     </>
