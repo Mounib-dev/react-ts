@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 
 import TodoList from "./components/TodoList";
 import NewTodo from "./components/NewTodo";
 
+import { Todo } from "./todo.model";
+
 // FC Type is a Function Component
 const App: React.FC = () => {
-  const todos = [{ id: "t1", text: "Learn React and TypeScript" }];
+  const [todos, setTodos] = useState<Todo[]>([]);
 
   const todoAddHandler = (text: string) => {
-    console.log(text);
+    setTodos([...todos, { id: Math.random().toString(), text: text }]);
   };
 
   return (
